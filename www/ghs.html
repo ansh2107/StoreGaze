@@ -1,0 +1,110 @@
+                
+                  
+  
+
+<ons-page id="signup-page">
+  
+        <script>
+            ons.bootstrap();
+        </script>
+  
+    
+    <div class="login">
+       <div>
+       <br>
+       <br>
+       <br>
+       
+     
+    
+   <div class="formarea">
+       
+       
+       
+        <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regus" placeholder="Username" value="">
+        
+        </div>
+
+        <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regps" placeholder="Password" value="">
+        </div>
+
+        <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regem" placeholder="Email Address" value="">
+        </div>
+        
+          <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regmo" placeholder="Mobile Number" value="">
+        </div>
+
+        <div class="lucent">
+          <p  style="color:white; margin-left:20px;">Password - 6 characters or more</p>
+        </div>
+<br>
+<br>
+        <div class="vspc form-row" >
+          <ons-button id="create" modifier="large--cta"  >SignUp</ons-button>
+        </div>
+ 
+</div>
+</div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+
+$("#create").click(function(){
+
+Parse.initialize("0sOweepymfoUjBCyJblqYj5SxTGYiqrsCd9msdsV", "oE5K82MDycwfyO1EMuz6medvU3OTw1EQavaX2hTW");
+
+
+    var input1 = document.getElementById("regus");
+      x =input1.value,
+      console.log(x),
+     input2 = document.getElementById("regps");
+      y=input2.value,
+      console.log(y),
+     input3 = document.getElementById("regem");
+      l =input3.value,
+      console.log(l),
+     input4 = document.getElementById("regmo");
+      m=input4.value,
+      console.log(m)
+
+
+var products = new Parse.User();
+products.set("username", x);
+products.set("password", y);
+products.set("email", l);
+
+// other fields can be set just like with Parse.Object
+products.set("phone", m);
+
+products.signUp(null, {
+  success: function(user) {
+    console.log( "Hooray! Let them use the app now.");
+  },
+  error: function(user, error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+
+});
+});
+</script>
+
+
+
+
+
+
+
+</ons-page>

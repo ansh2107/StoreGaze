@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="components/loader.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.19.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.19.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <title>Todo App Built on Parse</title>
+  <meta name="description" content="My Parse App">
+   <meta charset="utf-8">
+
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+    <link rel="stylesheet" href="../onsen-css-components-blue-basic-theme.css">
+    <link rel="stylesheet" href="login.css">
+
+    <script src="lib/onsen/js/angular/angular.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  
+  <script>
+    ons.bootstrap();
+
+  </script>
+ 
+</head>
+
+
+<body>    
+  
+    
+    <div class="login">
+       <div>
+       <br>
+       <br>
+       <br>
+       
+     
+    
+   <div class="formarea">
+       
+       
+       
+        <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regus" placeholder="Username" value="">
+        
+        </div>
+
+        <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regps" placeholder="Password" value="">
+        </div>
+
+        <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regem" placeholder="Email Address" value="">
+        </div>
+        
+          <div class="form-row">
+          <input type="text" class="text-input--underbar width-full" id="regmo" placeholder="Mobile Number" value="">
+        </div>
+
+        <div class="lucent">
+          <p  style="color:white; margin-left:20px;">Password - 6 characters or more</p>
+        </div>
+<br>
+<br>
+        <div class="vspc form-row" >
+          <ons-button id="create" modifier="large--cta"  >SignUp</ons-button>
+        </div>
+ 
+</div>
+</div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+
+$("#create").click(function(){
+
+Parse.initialize("0sOweepymfoUjBCyJblqYj5SxTGYiqrsCd9msdsV", "oE5K82MDycwfyO1EMuz6medvU3OTw1EQavaX2hTW");
+
+
+    var input1 = document.getElementById("regus");
+      x =input1.value,
+      console.log(x),
+     input2 = document.getElementById("regps");
+      y=input2.value,
+      console.log(y),
+     input3 = document.getElementById("regem");
+      l =input3.value,
+      console.log(l),
+     input4 = document.getElementById("regmo");
+      m=input4.value,
+      console.log(m)
+
+
+var products = new Parse.User();
+products.set("username", x);
+products.set("password", y);
+products.set("email", l);
+
+// other fields can be set just like with Parse.Object
+products.set("phone", m);
+
+products.signUp(null, {
+  success: function(user) {
+    console.log( "Hooray! Let them use the app now.");
+  },
+  error: function(user, error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+
+});
+});
+</script>
+
+
+
+
+</body>
+
+</html>
